@@ -1,0 +1,501 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.0 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Energy, Control Engineering, Optimization, and ML - I - Nan Wei’s Website</title>
+<meta name="description" content="For the first blog on my personal website, I want to share some of my thoughts on the connections between the various topics that I have experienced with. I am a mechanical engineer by undergraduate training, then specialized in control theory applied to robotic arms during my master’s program where I started my journey with AI/ML.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Nan Wei's Website">
+<meta property="og:title" content="Energy, Control Engineering, Optimization, and ML - I">
+<meta property="og:url" content="http://localhost:4000/energy_control_engineering_optimization_-and_ml/">
+
+
+  <meta property="og:description" content="For the first blog on my personal website, I want to share some of my thoughts on the connections between the various topics that I have experienced with. I am a mechanical engineer by undergraduate training, then specialized in control theory applied to robotic arms during my master’s program where I started my journey with AI/ML.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-04-21T00:00:00-04:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/energy_control_engineering_optimization_-and_ml/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nan Wei",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Nan Wei's Website Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">Nan Wei's Website</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/About/" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/Blogs/" >Blogs</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/bio-photo.png" alt="Nan Wei" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Nan Wei</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Robotics <br>Machine Learning <br>Control Engineering
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Toronto, Canada</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/nanwei1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/nanwei1/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
+          
+        
+          
+            <li><a href="https://nanwei1.github.io/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
+          
+        
+          
+            <li><a href="mailto:erik.weinan@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Energy, Control Engineering, Optimization, and ML - I">
+    <meta itemprop="description" content="For the first blog on my personal website, I want to share some of my thoughts on the connections between the various topics that I have experienced with. I am a mechanical engineer by undergraduate training, then specialized in control theory applied to robotic arms during my master’s program where I started my journey with AI/ML.">
+    <meta itemprop="datePublished" content="April 21, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Energy, Control Engineering, Optimization, and ML - I
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>For the first blog on my personal website, I want to share some of my thoughts on the connections between the various topics that I have experienced with. I am a mechanical engineer by undergraduate training, then specialized in control theory applied to robotic arms during my master’s program where I started my journey with AI/ML.</p>
+
+<p>There are many unifying theories between these different disciplines, and I often times reflect upon myself trying to identify these areas to better understand each topic. This might be helpful for, say, a control engineer who wants to dip his/her toes into machine learning or vice versa, or people who just wanted to get a glimpse of other fields.</p>
+
+<p><em>Disclaimer first:</em> This post only intends to share some of my intuitions in the fields and is hence not written with much academic rigor. There are plenty of books of one wants to dig deeper. I personally am a huge fan of <a href="http://www.cds.caltech.edu/~murray/mlswiki/index.php/Main_Page">A Mathematical Introduction to Robotic Manipulation</a> by Murray <em>et al</em>. Chapter 4 gives a great overview of robot dynamics as well as control theory related to Lyapunov functions.</p>
+
+<h2 id="energy">Energy</h2>
+<p>We know that the world tends to evolve to a lower-energy state: water flows downward, heat is transferred from hot objects to cold ones, etc. Let’s stick with 2 concrete examples: a ball rolling on a bowl-shaped surface, and a simple pendulum. Generally speaking, the ball will eventually stop at the bottom of the bowl, and the pendulum will stop swinging at the downward-pointing position - this is because our conventional wisdom tells us that these are the states with low energy.</p>
+
+<p style="text-align: center;"><img src="/assets/images/rolling_ball.jpg" style="height:100px;" />      <img src="/assets/images/pendr.gif" style="height:200px;" /></p>
+
+<p>But what about conservation of energy? Weren’t we told that energy will be preserved? In our examples, yes there will be conversions between potential energy and kinetic energy when the ball or the pendulum is oscillating, but the total energy (kinetic + potential) will decrease due to friction. We know that they will eventually stop - which means that the kinetic energy will become zero in the end - so in this case the state with the lowest potential energy will be favoured.</p>
+
+<h2 id="control-engineering">Control Engineering</h2>
+<p>Control engineering is a vast field with many advanced topics. In this blog I am coming from a Lyapunov based control perspective. For those who do not know what Lyapunov is - do not worry, we will be soon talking about this.</p>
+
+<p>Let’s take the pendulum example. Say if we have a motor available at the pivot of the pendulum and can control the torque, how can we use the motor such that the pendulum can be stabilized at any angle that we desire? (This is a different problem from the classic inverted pendulum problem in which the goal is to only make the pendulum stay upright - a simple linear PID control will do the trick given reasonable initial conditions.)</p>
+
+<p>There are different ways to approach this, and I propose an energy-based thinking. We know that without the control input, the pendulum will end up pointing downward as a result of it being lowest energy state, or more specifically, the effect of potential/gravitational energy. Let’s take a closer look at the gravity then. At the pivot of the pendulum, gravity exhibits itself as a moment/torque $\frac{1}{2} m g L \sin \theta$ that is acting clockwise.</p>
+
+<p style="text-align: center;"><img src="/assets/images/pendr.gif" style="height:200px;" /></p>
+
+<p>Think about this - what if we use the motor to counteract this moment, <em>i.e.</em> applying a $\frac{1}{2} m g L \sin \theta$ torque counter-clockwise? It will be as if there is not gravity! The pendulum will behave as if it is placed on a horizontal surface. It will stay at any arbitrary position that you place it at. This is called “gravity compensation” and is widely used in robot arm controls.</p>
+
+<p>We are half way there - how do we make it converge to any desired orientation $\theta_d$? We’ve so far figured out how to cancel out with the gravitational effect, but can we do more? Consider this: on top of gravity compensation, what if we add $\frac{1}{2} m g L \sin (\theta_d-\theta)$ clockwise? Note that, in the absence of control, the gravitational effect is a torque of $\frac{1}{2} m g L \sin \theta$ which causes $\theta$ to converge to $0$ (downward pointing). We essentially replaced the $\theta$ with $\theta_d-\theta$, meaning this input torque will make $\theta_d-\theta$ converge to 0! The pendulum will act like $\theta = \theta_d$ is the downward configuration.</p>
+
+<p>To recap: we know that the system naturally goes to the state with lowest potential energy. To exploit this behavior, we used the motor to (1) cancel out the gravitational effect, and (2) replace it with our own version of “potential energy” that has a minimum at $\theta=\theta_d$.</p>
+
+<p>In this example, this artificial energy that we created can be taken as our Lyapunov function. In a nutshell (and casually speaking), for a given control law, if you can find a function that is lowest at the desired configuration and increases when you get further away, and prove that the value of this function decreases with respect to time for the closed-loop system, then this desired configuration is guaranteed to be a stable equilibrium, and the function you used is Lyapunov function. Euclidean distance from the goal is a common form of Lyapunov function, and for physical systems like the pendulum, often times it is convenient to use energy as the Lyapunov function.</p>
+
+<p><img src="/assets/images/lyapunov.jpeg" alt="image-center" class="align-center" /></p>
+
+<p>In the example above, the Lyapunov function is the bowl-shaped surface, and the curve below is a projection of the system’s trajectory. You may think of this as a ball rolling towards the bottom of the bowl with some initial horizontal speed. The vertical axis can be understood as the height, or somewhat equivalently, the potential energy.</p>
+
+<p>Aside from the system dynamics, closed loop systems, etc., it is obvious that Lyapunov function is closely related to optimization - in a way it is a loss function that you want to minimize. The perspective is different though, because sometimes control engineers spend most of their time identifying a suitable Lyapunov function where as the cost/loss/objective function is usually well-defined for optimization problems. I will discuss more in my next post.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-04-21T00:00:00-04:00">April 21, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Energy%2C+Control+Engineering%2C+Optimization%2C+and+ML+-+I%20http%3A%2F%2Flocalhost%3A4000%2Fenergy_control_engineering_optimization_-and_ml%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fenergy_control_engineering_optimization_-and_ml%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fenergy_control_engineering_optimization_-and_ml%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/first_post/" class="pagination--pager" title="Welcome to Jekyll!
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/first_post/" rel="permalink">Welcome to Jekyll!
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Welcome
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="search" id="search" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/nanwei1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/nanwei1/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://nanwei1.github.io/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
+        
+      
+        
+          <li><a href="mailto:erik.weinan@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Nan Wei. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+     extensions: ["tex2jax.js"],
+     jax: ["input/TeX", "output/HTML-CSS"],
+     tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+     },
+     "HTML-CSS": { availableFonts: ["TeX"] }
+   });
+</script>
+
+
+  </body>
+</html>
