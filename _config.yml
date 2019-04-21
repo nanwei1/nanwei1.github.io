@@ -108,37 +108,38 @@ analytics:
 author:
   name             : "Nan Wei"
   avatar           : "/assets/images/bio-photo.png"
-  bio              : "Robotics, Machine Learning, Control Engineering"
+  bio              : "Robotics <br>Machine Learning <br>Control Engineering"
   location         : "Toronto, Canada"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:erik.weinan@gmail.com"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://nanwei1.github.io/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/nanwei1"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin-in"
       url: "https://www.linkedin.com/in/nanwei1/"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://nanwei1.github.io/"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:erik.weinan@gmail.com"
 
 # Site Footer
 footer:
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:erik.weinan@gmail.com"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://nanwei1.github.io/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/nanwei1"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin-in"
       url: "https://www.linkedin.com/in/nanwei1/"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://nanwei1.github.io/"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:erik.weinan@gmail.com"
+
 
 
 # Reading Files
