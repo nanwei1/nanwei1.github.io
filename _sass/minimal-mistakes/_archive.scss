@@ -51,6 +51,7 @@
     &:hover {
       color: $gray;
       text-decoration: underline;
+      font-size: $type-size-4;
     }
   }
   a::before {
