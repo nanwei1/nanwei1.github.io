@@ -35,13 +35,13 @@ Control engineering is a vast field with many advanced topics. In this blog I am
 
 Let's take the pendulum example. Say if we have a motor available at the pivot of the pendulum and can control the torque, how can we use the motor such that the pendulum can be stabilized at any angle that we desire? (This is a different problem from the classic inverted pendulum problem in which the goal is to only make the pendulum stay upright - a simple [linear PID control](http://ctms.engin.umich.edu/CTMS/index.php?example=Introduction&section=ControlPID) will do the trick given reasonable initial conditions.)
 
-There are different ways to approach this, and I propose an energy-based thinking. We know that without the control input, the pendulum will end up pointing downward as a result of it being lowest energy state, or more specifically, the effect of potential/gravitational energy. Let's take a closer look at the gravity then. At the pivot of the pendulum, gravity exhibits itself as a moment/torque of $\frac{1}{2} m g L \sin \theta$ that is acting clockwise.
+There are different ways to approach this, and I propose an energy-based thinking. We know that without the control input, the pendulum will end up pointing downward as a result of it being lowest energy state, or more specifically, the effect of potential (or gravitational) energy. Let's take a closer look at the gravity then. At the pivot of the pendulum, gravity exhibits itself as a moment/torque of $\frac{1}{2} m g L \sin \theta$ that is acting clockwise.
 
 {:refdef: style="text-align: center;"}
 <img src="/assets/images/pendr.gif" style="height:200px;"/>
 {:refdef}
 
-Think about this - what if we use the motor to counteract this moment, *i.e.* applying a $\frac{1}{2} m g L \sin \theta$ torque counter-clockwise? It will be as if there is not gravity! The pendulum will behave as if it is placed on a horizontal surface. It will stay at any arbitrary position that you place it at. This is called "gravity compensation" and is widely used in robot arm controls.
+Think about this - what if we use the motor to counteract this moment, *i.e.* applying a $\frac{1}{2} m g L \sin \theta$ torque counter-clockwise? It will be as if there is no gravity! The pendulum will behave as if it is placed on a horizontal surface. It will stay at any arbitrary position that you place it at. This is called "gravity compensation" and is widely used in robot arm controls.
 
 We are half way there - how do we make it converge to any desired orientation $\theta_d$? We've so far figured out how to cancel out with the gravitational effect, but can we do more? Consider this: on top of gravity compensation, what if we add $\frac{1}{2} m g L \sin (\theta_d-\theta)$ clockwise? Note that, in the absence of control, the gravitational effect is a torque of $\frac{1}{2} m g L \sin \theta$ which causes $\theta\$ to converge to $0$ (downward pointing). We essentially replaced the $\theta$ with $\theta_d-\theta$, meaning this input torque will make $\theta_d-\theta$ converge to 0! The pendulum will act like $\theta = \theta_d$ is the downward configuration.
 
