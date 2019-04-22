@@ -1,9 +1,4 @@
 var store = [{
-        "title": "Welcome to Jekyll!",
-        "excerpt":"Welcome   Hello world, this is my first Jekyll blog post.   I hope you like it!  ","categories": [],
-        "tags": [],
-        "url": "http://localhost:4000/first_post/",
-        "teaser":null},{
         "title": "Energy, Control Engineering, Optimization, and ML - I",
         "excerpt":"For the first blog on my personal website, I want to share some of my thoughts on the connections between the various topics that I have experienced with. I am a mechanical engineer by undergraduate training, then specialized in control theory applied to robotic arms during my master’s program where...","categories": [],
         "tags": [],
