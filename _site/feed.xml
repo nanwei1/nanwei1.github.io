@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-21T20:58:49-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Nan Wei’s Website</title><subtitle>-</subtitle><author><name>Nan Wei</name></author><entry><title type="html">Energy, Control Engineering, Optimization, and ML - I</title><link href="http://localhost:4000/energy_control_engineering_optimization_-and_ml/" rel="alternate" type="text/html" title="Energy, Control Engineering, Optimization, and ML - I" /><published>2019-04-21T00:00:00-04:00</published><updated>2019-04-21T00:00:00-04:00</updated><id>http://localhost:4000/energy_control_engineering_optimization_%20and_ml</id><content type="html" xml:base="http://localhost:4000/energy_control_engineering_optimization_-and_ml/">&lt;p&gt;For the first blog on my personal website, I want to share some of my thoughts on the connections between the various topics that I have experienced with. I am a mechanical engineer by undergraduate training, then specialized in control theory applied to robotic arms during my master’s program where I started my journey with AI/ML.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-29T20:29:03-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Nan Wei’s Website</title><subtitle>-</subtitle><author><name>Nan Wei</name></author><entry><title type="html">Energy, Control Engineering, Optimization, and ML - II</title><link href="http://localhost:4000/energy_control_engineering_optimization_-and_ml_2/" rel="alternate" type="text/html" title="Energy, Control Engineering, Optimization, and ML - II" /><published>2019-04-25T00:00:00-04:00</published><updated>2019-04-25T00:00:00-04:00</updated><id>http://localhost:4000/energy_control_engineering_optimization_%20and_ml_2</id><content type="html" xml:base="http://localhost:4000/energy_control_engineering_optimization_-and_ml_2/">&lt;p&gt;My last post discussed control engineering at a rather high level. In this post, I will include a bit more technical stuff in order to illustrate a comparison with optimization and ML.&lt;/p&gt;
+
+&lt;h2 id=&quot;energy&quot;&gt;Energy&lt;/h2&gt;
+&lt;p&gt;Many control problems can be defined in the following generic form: given states $x$ (which could be and often is a vector), control input $u$, and known system dynamics $\dot{x} = f( x, u )$, find a choice of $u$ to make $x$ converge to some desired states $x_d$.&lt;/p&gt;
+
+&lt;p&gt;Using the pendulum example from my previous post again, the state $x$ can be chosen to be the orientation of the pendulum along with the angular velocity $x = ( \theta, \dot\theta )$. Why do we need the velocity term? Then we have $\dot x = ( \dot\theta, \textrm{some equation})$, where &lt;em&gt;some equation&lt;/em&gt; is the equation of motion for $\ddot \theta$ as a function of $m$, $\theta$, $l$, and $u$. In this case, $u=\tau$ is the input torque at the pivot. If the goal is to stabilize the pendulum at certain orientation $\theta_d$, then we have $x_d = ( \theta_d, 0)$.&lt;/p&gt;
+
+&lt;p&gt;The essence of the energy-based control that was discussed in my last post is to understand the natural energy that is present in the system, identify ways to “replace” it with an artificial form that favors the target $x_d$ as the globally stable equilibrium point. For a fully actuated system (meaning that you can exert input independently in the direction of each degree of freedom), it is often very easy to find $u$ once the artificial energy is well-defined, so the challenge is usually find the artificial energy itself. Because the artificial energy is usually taken as the Lyapunov function, we denote is as $V(x, \dot x)$. Loosely speaking, if you can prove that $V$ is at its minimum at $(x=x_d, \dot x=0)$, and that $V$ monotonically decreases over time (&lt;em&gt;i.e.&lt;/em&gt; $\dot V(x, \dot x, u) &amp;lt;0)$, then we know that the desired states will eventually be reached.&lt;/p&gt;
+
+&lt;h2 id=&quot;optimization-and-ml&quot;&gt;Optimization and ML&lt;/h2&gt;
+&lt;p&gt;Of course there is no Lyapunov function in optimization, but instead we have a scalar function that defines the cost to be minimized: $J(x,y,\theta)$. Here $x$ is the input data, $y$ is the output data, and $\theta$ is the model parameters (weights and biases in the neural network, for instance). My apologies for mixing the use of $x$ and $\theta$, but I was following the most widely used conventions in both controls and optimization so please bear with me here.&lt;/p&gt;
+
+&lt;p&gt;In most cases, it is impossible to get a closed-form solution to the optimization problem, so we have to figure out other ways to decrease $J$. The most widely used method is an iterative one, often based on the gradient - backpropagation in neural networks is a great example of this. In each iteration, the goal is to gradually decrease $J$ by adjusting $\theta$ - &lt;em&gt;i.e.&lt;/em&gt; we strive to find some update rule $\theta_{i+1} \leftarrow g(\theta_i, \frac{\partial J}{\partial \theta_i})$ where $i$ denotes the time step or number of iterations, so that $J_{i+1} &amp;lt; J_i$. To make it *a bit* more concrete, the vanilla gradient descent rule has $\theta_{i+1} \leftarrow \theta_i - \alpha \frac{\partial J}{\partial \theta_i}$, and with a suitable choice of $\alpha$ we know the cost will decrease after each iteration.&lt;/p&gt;
+
+&lt;p&gt;I personally found this very similar to energy-based control. In the end, in both cases the goal is to minimize certain scalar function $V$ or $J$. There is no direct notion of “time derivative” in optimization, but the update rule is no different from a discrete system in control engineering. If we make the update step small enough (very small $\alpha$ in gradient descent, for example), it can be perceived as a continuous time control system. This goes along with the analogy that gradient descent is similar to a ball rolling downhill in a complex high-dimensional space (I actually have some slight disagreement about this analogy and will discuss this in a future post).&lt;/p&gt;
+
+&lt;h2 id=&quot;comparison-chart&quot;&gt;Comparison Chart&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Control Engineering&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;ML Optimization&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Notes&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Scalar Function&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Lyapunov function $V$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Cost function $J$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Usually $J$ is given for an optimization problem, but finding a suitable $V$ is often the hardest step in control&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;“Space”&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;State space of $x$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Space of all possible model parameters $\theta$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Initial Condition&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Usually constrained by initial condition $x(t=0) = x_0$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Free to initialize&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Objective&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Make $x \rightarrow x_d$ (target configuration). In doing so we minimize $V$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Minimize cost $J$. In doing so we reach some optimal parameters $\theta_d$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;The target configuration $x_d$ is always given in control, but we never know $\theta_d$ ahead of time - otherwise there’s no point working on optimization!&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;“Input”&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Input is $u$ which goes in the system dynamics: $\dot x = f(u, x, \dot x)$. We are constrained by this $f(u, x, \dot x)$ which defines how the input affects the system&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;The “input” is the update rule itself, free of constraints: $\theta_{i+1} \leftarrow g(\theta_i, \frac{\partial J}{\partial \theta_i})$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;“Dynamics”&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Dynamics of the closed-loop system - “energy always tends to decrease”&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Gradient-based optimization - “rolling downhill” &lt;em&gt;aka&lt;/em&gt; “energy always tends to decrease”&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Looking back at this post I almost feel that this is a rambling note and there should be better ways to tell the story. If you have any questions or suggestions please feel out to reach out!&lt;/p&gt;</content><author><name>Nan Wei</name></author><summary type="html">My last post discussed control engineering at a rather high level. In this post, I will include a bit more technical stuff in order to illustrate a comparison with optimization and ML.</summary></entry><entry><title type="html">Energy, Control Engineering, Optimization, and ML - I</title><link href="http://localhost:4000/energy_control_engineering_optimization_-and_ml/" rel="alternate" type="text/html" title="Energy, Control Engineering, Optimization, and ML - I" /><published>2019-04-21T00:00:00-04:00</published><updated>2019-04-21T00:00:00-04:00</updated><id>http://localhost:4000/energy_control_engineering_optimization_%20and_ml</id><content type="html" xml:base="http://localhost:4000/energy_control_engineering_optimization_-and_ml/">&lt;p&gt;For the first blog on my personal website, I want to share some of my thoughts on the connections between the various topics that I have experienced with. I am a mechanical engineer by undergraduate training, then specialized in control theory applied to robotic arms during my master’s program where I started my journey with AI/ML.&lt;/p&gt;
 
 &lt;p&gt;There are many unifying theories between these different disciplines, and I often times reflect upon myself trying to identify these areas to better understand each topic. This might be helpful to, say, a control engineer who wants to dip his/her toes into machine learning or vice versa, or people who just wanted to get a glimpse of other fields.&lt;/p&gt;
 
