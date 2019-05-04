@@ -309,7 +309,7 @@
 <h2 id="optimization-and-ml">Optimization and ML</h2>
 <p>Of course there is no Lyapunov function in optimization, but instead we have a scalar function that defines the cost to be minimized: $J(x,y,\theta)$. Here $x$ is the input data, $y$ is the output data, and $\theta$ is the model parameters (weights and biases in the neural network, for instance). My apologies for mixing the use of $x$ and $\theta$, but I was following the most widely used conventions in both controls and optimization so please bear with me here.</p>
 
-<p>In most cases, it is impossible to get a closed-form solution to the optimization problem, so we have to figure out other ways to decrease $J$. The most widely used method is an iterative one, often based on the gradient - backpropagation in neural networks is a great example of this. In each iteration, the goal is to gradually decrease $J$ by adjusting $\theta$ - <em>i.e.</em> we strive to find some update rule $\theta_{i+1} \leftarrow g(\theta_i, \frac{\partial J}{\partial \theta_i})$ where $i$ denotes the time step or number of iterations, so that $J_{i+1} &lt; J_i$. To make it *a bit* more concrete, the vanilla gradient descent rule has $\theta_{i+1} \leftarrow \theta_i - \alpha \frac{\partial J}{\partial \theta_i}$, and with a suitable choice of $\alpha$ we know the cost will decrease after each iteration.</p>
+<p>In most cases, it is impossible to get a closed-form solution to the optimization problem, so we have to figure out other ways to decrease $J$. The most widely used method is an iterative one, often based on the gradient - backpropagation in neural networks is a great example of this. In each iteration, the goal is to gradually decrease $J$ by adjusting $\theta$ - <em>i.e.</em> we aim to find some update rule $\theta_{i+1} \leftarrow g(\theta_i, \frac{\partial J}{\partial \theta_i})$ where $i$ denotes the time step or number of iterations, so that $J_{i+1} &lt; J_i$. To make it *a bit* more concrete, the vanilla gradient descent rule has $\theta_{i+1} \leftarrow \theta_i - \alpha \frac{\partial J}{\partial \theta_i}$, and with a suitable choice of $\alpha$ we know the cost will decrease after each iteration.</p>
 
 <p>I personally found this very similar to energy-based control. In the end, in both cases the goal is to minimize certain scalar function $V$ or $J$. There is no direct notion of “time derivative” in optimization, but the update rule is no different from a discrete system in control engineering. If we make the update step small enough (very small $\alpha$ in gradient descent, for example), it can be perceived as a continuous time control system. This goes along with the analogy that gradient descent is similar to a ball rolling downhill in a complex high-dimensional space (I actually have some slight disagreement about this analogy and will discuss this in a future post).</p>
 
@@ -340,7 +340,7 @@
     <tr>
       <td style="text-align: center">Initial Condition</td>
       <td style="text-align: center">Usually constrained by initial condition $x(t=0) = x_0$</td>
-      <td style="text-align: center">Free to initialize</td>
+      <td style="text-align: center">Free to initialize $\theta$</td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
@@ -351,7 +351,7 @@
     </tr>
     <tr>
       <td style="text-align: center">“Input”</td>
-      <td style="text-align: center">Input is $u$ which goes in the system dynamics: $\dot x = f(u, x, \dot x)$. We are constrained by this $f(u, x, \dot x)$ which defines how the input affects the system</td>
+      <td style="text-align: center">Input is $u$ which goes in the system dynamics: $\dot x = f(u, x)$. We are constrained by this $f(u, x)$ which defines how the input affects the system</td>
       <td style="text-align: center">The “input” is the update rule itself, free of constraints: $\theta_{i+1} \leftarrow g(\theta_i, \frac{\partial J}{\partial \theta_i})$</td>
       <td style="text-align: center"> </td>
     </tr>
