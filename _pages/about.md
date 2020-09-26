@@ -11,6 +11,7 @@ author_profile: true
 {:refdef: style="text-align: center;"}
 <img src="/assets/images/briefcase.png" style="height:60px;"/>
 {:refdef}
+- I am currently a _**Machine Learning Engineer**_ at Kore Geosystems, working on data-related projects and software products that aid geologists and geotechnical engineers to be more efficient and consistent.
 - In 2018, I worked as a _**Project Associate, Artificial Intelligence**_ in the innovation group at Barrick Gold Corp, investigating how new technologies in robotics and machine learning can transform the mining industry.
 - Between 2015 and 2017, I was a _**Graduate Research Assistant**_ during my master's program at University of Waterloo. The focus of my research was on nonlinear control theory applied to robot manipulators in order to create human-like natural motions.
 - Between 2014 and 2015, in my last couple of years as a undergraduate student at Cornell University, I served as a _**Research Assistant**_, analyzing fuel droplet combustion in zero-gravity conditions and intelligent control of data center cooling systems.
